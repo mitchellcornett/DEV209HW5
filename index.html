@@ -42,9 +42,32 @@
             </nav>
             <h1>Form</h1>
         </div>
-        <form>
 
-        </form>
+        <div data-role="content" data-theme="d">
+            <form>
+                <label for="gameName">Game Name</label>
+                <input type="text" value="" id="gameName" />
+                <label for="gameDev">Developer</label>
+                <input type="text" value="" id="gameDev" />
+                <label for="gameYear">Year</label>
+                <input type="text" value="" id="gameYear" />
+                <label for="select-genre"></label>
+                <select name="select-genre" id="select-genre">
+                    <option value="Misc">Misc.</option>
+                    <option value="Action">Action</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Shooting">Shooting</option>
+                    <option value="Strategy">Strategy</option>
+                    <option value="Role Playing">Role Playing</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Sports">Sports</option>
+                </select>
+            </form>
+
+            <button id="addButton">Add Game</button>
+
+        </div>
+        
     </section>
 
     <section data-role="page" id="list">
@@ -61,9 +84,11 @@
             </nav>
             <h1>List</h1>
         </div>
-        <ul>
+        <div data-role="content" data-theme="d">
+            <ul id="gameList">
 
-        </ul>
+            </ul>
+        </div>
     </section>
 <script src="main.js"></script>
 </body>
