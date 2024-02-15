@@ -2,16 +2,17 @@
 let gameArray = [];
 
 // game object (holds all the information for game)
-let gameObject = function(pName, pDev, pYear, pGenre){
+let gameObject = function(pName, pDev, pYear, pReview, pGenre){
     this.name = pName;
     this.dev = pDev;
     this.year = pYear;
+    this.review = pReview;
     this.genre = pGenre;
 }
 
 // examples to be pushed
-gameArray.push(new gameObject("Granblue Fantasy", "Cygames", "2014", "Role Playing"));
-gameArray.push(new gameObject("Donkey Kong", "Nintendo", "1981", "Misc."));
+gameArray.push(new gameObject("Granblue Fantasy", "Cygames", "2014", "This game is great!", "Role Playing"));
+gameArray.push(new gameObject("Donkey Kong", "Nintendo", "1981", "A classic!", "Misc."));
 
 
 
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let gameName = document.getElementById("gameName");
     let gameDev = document.getElementById("gameDev");
     let gameYear = document.getElementById("gameYear");
+    let gameReview = document.getElementById("gameReview");
     let selectGenre = "";
     
     // creates the list on the list page of the html
@@ -30,15 +32,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // called whenever the add button is pressed
     document.getElementById("addButton").addEventListener("click", function(){
         // pushes a new game to the game array
-        gameArray.push(new gameObject(gameName.value, gameDev.value, gameYear.value, selectGenre));
+        gameArray.push(new gameObject(gameName.value, gameDev.value, gameYear.value, gameReview.value, selectGenre));
 
         // clears the values of the forms in the html form
         gameName.value = "";
         gameDev.value = "";
         gameYear.value = "";
+        gameReview.value = "";
 
         // recreates the list in the list page of the html
         createList();
+
+        document.location.href = "index.html#list";
     });
 
     // changes the selectGenre varialbe to whatever the value is of the select-genre tag is in the html

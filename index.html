@@ -57,6 +57,8 @@
                 <input type="text" value="" id="gameDev" />
                 <label for="gameYear">Year</label>
                 <input type="text" value="" id="gameYear" />
+                <label for="gameReview">Review</label>
+                <input type="text" value="" id="gameReview" />
                 <label for="select-genre"></label>
                 <select name="select-genre" id="select-genre">
                     <option value="Misc">Misc.</option>
@@ -97,6 +99,35 @@
             <ul id="gameList">
 
             </ul>
+        </div>
+        <div data-role="footer">
+            <h2>Made by Dylan Verallo & Mitchell Cornett</h2>
+        </div>
+    </section>
+
+    <section data-role="page" id="details">
+        <div data-role="header">
+            <nav data-role="navbar">
+                <ul>
+                    <li>
+                        <a data-transition="flow" href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a data-transition="flow" href="#form">Form</a>
+                    </li>
+                    <li>
+                        <a data-transition="flow" href="#list">List</a>
+                    </li>
+                </ul>
+            </nav>
+            <h1>Details</h1>
+        </div>
+        <div data-role="content" data-theme="d">
+            <p id="gameDetailsName"></p>
+            <p id="gameDetailsDeveloper"></p>
+            <p id="gameDetailsYear"></p>
+            <p id="gameDetailsReview"></p>
+            <p id="gameDetailsGenre"></p>
         </div>
         <div data-role="footer">
             <h2>Made by Dylan Verallo & Mitchell Cornett</h2>
