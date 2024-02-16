@@ -8,6 +8,7 @@ let gameObject = function(pName, pDev, pYear, pReview, pGenre){
     this.year = pYear;
     this.review = pReview;
     this.genre = pGenre;
+    this.id = -1;
 }
 
 // examples to be pushed
@@ -50,7 +51,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $(document).bind("change", "#select-genre", function (event, ui) {
         selectGenre = document.getElementById("select-genre").value;
     });
+    
+    // loads the content from the game array to the details page
+    $(document).on("pagebeforeshow", "#details", function (event){
+        let localID = localStorage.getItem('id');
 
+        // if a user goes straight into this page without something in local storage it will hang, so this is to send them to the home page
+        if (localID === null){
+            document.location.href = "index.html#home"
+        } else {
+            document.getElementById("gameDetailsName").innerHTML = `Title: ${gameArray[localID].name}`
+            document.getElementById("gameDetailsDeveloper").innerHTML = `Developer: ${gameArray[localID].dev}`
+            document.getElementById("gameDetailsYear").innerHTML = `Released: ${gameArray[localID].year}`
+            document.getElementById("gameDetailsGenre").innerHTML = `Genre: ${gameArray[localID].genre}`
+            document.getElementById("gameDetailsReview").innerHTML = `Review: ${gameArray[localID].review}`
+        }
+
+    });
+
+    
 
 });
 
@@ -63,6 +82,11 @@ function createList(){
     for (let i = 0; i < gameArray.length; i++){
         let listElement = document.createElement('li');
         listElement.innerHTML = `${gameArray[i].name} - ${gameArray[i].dev}: ${gameArray[i].year} [${gameArray[i].genre}]`
+        gameArray[i].id = i;
+        listElement.addEventListener('click', function() {
+            localStorage.setItem('id', gameArray[i].id);
+            document.location.href = "index.html#details"
+        });
         gameList.appendChild(listElement);
     }
 };
